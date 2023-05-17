@@ -73,7 +73,7 @@ const verifyHandle=()=>{
   let email=values.email;
   let otp=values.otp;
   axios
-  .post("http://localhost:5000/verified",{email,otp}).then((res) => {
+  .post("http://localhost:5000/verified",{email,otp}).then((res) =>{
     console.log("verify response=",res)
     if(res.data.status===1){
       // localStorage.setItem("user",JSON.stringify(res.data));
@@ -100,18 +100,17 @@ const verifyHandle=()=>{
         <div className='col-md-12 loginhandle'>
         <form className='fontSize' onSubmit={handleSubmit} >
       <div className='m'>
-      <label  className="control extraMarginP">FirstName</label>
+      <label  className="control extraMarginP">FirstName*</label>
       <input type="text" className="form-control" onBlur={handleBlur} value={values.fname} name='fname'  placeholder="Enter first name" onChange={(handleChange)}/>
       {touched.fname&&errors.fname ? <span className='spanError'>{errors.fname}</span> : ""}
       <br/>
-     
-      <label  className="control extraMarginP">LastName:</label>
+      <label  className="control extraMarginP">LastName*</label>
       <input type="text" className="form-control" value={values.lname} name='lname' 
        placeholder="Enter last name" onBlur={handleBlur} onChange={handleChange} />
       {touched.lname&&errors.fname ? <span className='spanError'>{errors.lname}</span> : ""}
       <br/>      
     
-      <label  className="control extraMargin">Email : </label>
+      <label  className="control extraMarginEmail">Email* </label>
       <input type="text" className="form-control" name='email'
        value={values.email} id="exampleInputEmail1" aria-describedby="emailHelp"
         placeholder="Enter email" onBlur={handleBlur} onChange={handleChange} />
@@ -119,13 +118,13 @@ const verifyHandle=()=>{
       {touched.email&&errors.email ? <span className='spanError'>{errors.email}</span> :""}
       <br/>
       
-      <label  className="control extraMargin">Mobile</label>
+      <label  className="control extraMargin">Mobile*</label>
       <input type="text" className="form-control" name='mobile' value={( values.mobile)}
         placeholder="Enter mobile number" onBlur={handleBlur} onChange={handleChange} />
       
       {touched.mobile&&errors.mobile? <span className='spanError'>{errors.mobile}</span> :""}
       <br/>
-      <label className="control extraMarginP" >Password</label>
+      <label className="control extraMarginP" >Password*</label>
       <input type="password" className="form-control" name='password'
        value={values.password} id="exampleInputPassword1" placeholder="Password"
        onBlur={handleBlur} onChange={handleChange} />
@@ -138,12 +137,11 @@ const verifyHandle=()=>{
     values.fname.length> 2 &&
     values.lname.length> 2 &&
     values.email.length> 0 &&
-    values.password.length> 8 &&
+    values.password.length> 6 &&
     values.mobile.length>= 10 ?(
   <button className="btn btn-primary" onClick={()=>{handleSubmitApi()}} >Submit</button>
       ): 
       (<button className="btn btn-primary dis" onClick={()=>{handleSubmit()}} disabled>Submit</button>) }
-    
   </form>
   <Dialog
         open={open}

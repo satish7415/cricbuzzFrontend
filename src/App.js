@@ -11,7 +11,7 @@ import Archives from './component/Archives';
 import Series from './component/Series';
 import Teams from './component/Teams';
 import Ranking from './component/Ranking';
-import More from './component/More';
+import More from "./component/More"
 import Cricbuzhome from './component/Cricbuzhome';
 import Live from './component/Live';
 import Recent from './component/Recent';

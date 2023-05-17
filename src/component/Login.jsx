@@ -70,36 +70,38 @@ export default function Signup() {
     
   }
   return (
-    <div className='bgimg'>
+    <div className='bgimg1'>
       <div className='container'>
         <div className='row'>
           <div className='col-md-12 loginhandle'>
-            <form className='fontSize2'>
-
-              <label className="control1">Email address</label>
-              <br/>
-              <input type="email" className="form-control122" value={email} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
-            <br/>
-             <label className="control1">Password</label>
-             <br/>
-              <input type="password" className="form-control122" value={password} id="exampleInputPassword1" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+            <form >
+              <div className='fontSize2'  >
+              <label className="control1 ">Email*</label>
+              <br />  <br />
+              <input type="email" className="form-control" value={email} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
+            
+             <label className="control1">Password*</label>
+             <br />  <br />
+              <input type="password" className="form-control" value={password} id="exampleInputPassword1" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                               {
                 password.length > 0 &&
                   email.length > 0 ? (
                   <button className="btn btn-primary" onClick={() => { handleSubmit();openMessage() }}>Submit</button>
 
-                ) : (<button className="btn btn-primary" onClick={() => { handleSubmit() }} disabled>Submit</button>)
+                ) : (<button className="btn btn-primary dis" onClick={() => { handleSubmit() }} disabled>Submit</button>)
               }
+            </div>
             </form>
           </div>
         </div>
-      </div>
-      <Modal show={show} onHide={handleClose} className='popupBox'>
+        <Modal show={show} onHide={handleClose} className='popupBox'>
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body><h1 style={{ color: "green" }}>{msg}   <Spin /> </h1></Modal.Body>
         <Modal.Footer />
       </Modal>
+      </div>
+      
     </div >
   )
 }

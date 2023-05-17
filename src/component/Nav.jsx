@@ -79,11 +79,12 @@ const Nav = () => {
 </div>
 </div>
           :
-              <span className='loginNav'>
+              <div className='loginNav'>
               <NavLink to='/' className='mlink'>Home</NavLink>
               <NavLink to='/register' className='mlink'>Register</NavLink>
               <NavLink to='/login' className='mlink'>Login</NavLink>
-              </span>
+              </div>
+            
           }
          
         </>
